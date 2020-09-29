@@ -5,7 +5,10 @@ require_relative 'card'
 
 class Deck
 
-  def initialize
+  attr_reader :card
+
+
+  def initialize(value_cards, suits, face_cards)
 
   end
 
