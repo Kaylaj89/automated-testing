@@ -31,16 +31,25 @@ describe Card do
       card = Card.new(5, :clubs)
 
       #Expect
-      expect(card).must_equal "5 of clubs"
+      expect(card.to_s).must_equal "5 of clubs"
 
     end
 
     it "to_s returns a readable String value for Ace, Jack, Queen, King" do
+      #Arrange
+      face_cards = {
+          1 => "Ace",
+          11 => "Jack",
+          12 => "Queen",
+          13 => "King"
+      }
+
       #Act
-      card = Card.new(12, :diamonds)
+      face_cards.each do |number, face_value|
+      card = Card.new(number, :diamonds)
 
       #Expect
-      expect(card.to_s).must_equal "Queen of diamonds"
+      expect(card.to_s).must_equal "#{face_value} of diamonds"
 
 
       # Test to ensure that to_s works for cards values 1, and 11-13
@@ -68,5 +77,5 @@ describe Card do
 
     end
   end
-
-end
+  end
+  end
