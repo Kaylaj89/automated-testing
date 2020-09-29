@@ -5,5 +5,14 @@ describe Deck do
   # What should you test?
     # 1.  Expected Behavior
     # 2.  Edge cases
+  describe "You can create a Deck instance" do
+    it "Can be created" do
+      [:hearts, :spades, :clubs, :diamonds].each do |suit|
+        (1..13).each do |value|
+          card = Card.new(value, suit)
+          expect(card).must_be_instance_of Card
+        end
+      end
+    end
 
 end
