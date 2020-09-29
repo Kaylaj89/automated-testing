@@ -6,13 +6,44 @@ describe Deck do
     # 1.  Expected Behavior
     # 2.  Edge cases
   describe "You can create a Deck instance" do
-    it "Can be created" do
-      [:hearts, :spades, :clubs, :diamonds].each do |suit|
-        (1..13).each do |value|
-          card = Card.new(value, suit)
-          expect(card).must_be_instance_of Card
+    it "Can be instantiated" do
+      deck = Deck.new
+      expect(deck).must_be_instance_of Deck
+    end
+  end
+
+  describe "draw method" do
+    it "should draw a card from the deck" do
+      deck = Deck.new
+      expect(deck).must_respond_to :draw
+    end
+
+    it "returns a card" do
+      deck = Deck.new
+      expect(deck.draw).must_be_instance_of Card
+    end
+
+    it "will allow user to draw 52 cards from deck" do
+      52.times do
+        deck = Deck.new
+        expect(deck.draw).must_be_instance_of Card
+      end
+    end
+
+    it "will return nil for an empty deck" do
+        52.times do
+          deck = Deck.new
+          expect(deck.draw).must_be_instance_of Card
         end
+
+        deck = Deck.new
+        expect(deck.draw).must_be_nil
       end
     end
 
 end
+
+
+
+
+
