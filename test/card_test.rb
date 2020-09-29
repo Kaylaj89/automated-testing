@@ -26,9 +26,23 @@ describe Card do
     it "to_s returns a readable String value logically for values 2-10" do
       # Test to ensure that to_s works for cards values 2-10
       # for example:  "2 of diamonds"
+
+      #Act
+      card = Card.new(5, :clubs)
+
+      #Expect
+      expect(card).must_equal "5 of clubs"
+
     end
 
     it "to_s returns a readable String value for Ace, Jack, Queen, King" do
+      #Act
+      card = Card.new(12, :diamonds)
+
+      #Expect
+      expect(card.to_s).must_equal "Queen of diamonds"
+
+
       # Test to ensure that to_s works for cards values 1, and 11-13
       # For example: "Queen of hearts"
       # The current implementation of to_s does not address this feature
