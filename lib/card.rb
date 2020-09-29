@@ -1,6 +1,7 @@
 # card.rb
 SUITS = [:hearts, :spades, :clubs, :diamonds]
-VALUE_CARDS = [2, 3, 4, 5, 6, 7, 8, 9, 10]
+VALUE_CARDS = (1..13).to_a
+FACE_CARDS = ["Ace", "Jack", "Queen", "King"]
 
 class Card
   attr_reader :value, :suit
@@ -14,7 +15,7 @@ class Card
 
   end
 
-  def self.uniform_values(value)
+  def self.get_values(value)
     new_value = nil
     new_value = value if VALUE_CARDS.any? value
     new_value = "Ace" if value == 1
@@ -25,9 +26,8 @@ class Card
 
   end
 
-
   def to_s
-      return "#{Card.uniform_values(value)} of #{suit.to_s}"
+      return "#{Card.get_values(value)} of #{suit.to_s}"
     end
 
 end
