@@ -29,18 +29,7 @@ describe Deck do
         expect(deck.draw).must_be_instance_of Card
       end
     end
-
-    it "will return nil for an empty deck" do
-        52.times do
-          deck = Deck.new
-          expect(deck.draw).must_be_instance_of Card
-        end
-
-        deck = Deck.new
-        expect(deck.draw).must_be_nil
-      end
-    end
-
+  end
 end
 
 

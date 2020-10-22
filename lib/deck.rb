@@ -19,8 +19,10 @@ class Deck
   end
 
   def draw
+    return if Deck.nil?
     drawn_card = @cards.pop
     return drawn_card
+
   end
 
   def shuffle
